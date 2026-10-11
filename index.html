@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ಪಾಲಾರ್ ಸಾರಥಿ ಇ-ಪೇಪರ್</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f4f5f7;color:#222}
+header{background:#8b0000;color:white;text-align:center;padding:24px 14px}header h1{margin:0;font-size:clamp(28px,5vw,42px)}header p{margin:8px 0 0}
+main{max-width:900px;margin:22px auto;padding:0 14px}.card{background:white;border-radius:12px;padding:20px;margin-bottom:18px;box-shadow:0 2px 10px #00000012}
+h2{color:#8b0000;margin-top:0}.note{line-height:1.75;color:#4b5563}input[type=file]{display:block;max-width:100%;margin:14px 0}
+#viewer iframe{width:100%;height:70vh;min-height:480px;border:1px solid #ddd;border-radius:8px;margin-top:14px}.small{font-size:14px;color:#666}
+footer{text-align:center;background:#222;color:white;padding:18px;line-height:1.6}
+</style>
+</head>
+<body>
+<header><h1>ಪಾಲಾರ್ ಸಾರಥಿ</h1><p>ಕನ್ನಡ ದೈನಿಕ ಪತ್ರಿಕೆ · ಇ-ಪೇಪರ್</p></header>
+<main>
+<section class="card">
+<h2>ಇಂದಿನ ಇ-ಪೇಪರ್</h2><p id="date" class="note"></p>
+<p class="note">PDF ಫೈಲ್ ಆಯ್ಕೆಮಾಡಿ ನಿಮ್ಮ ಮೊಬೈಲ್‌ನಲ್ಲಿ ಪತ್ರಿಕೆಯನ್ನು ವೀಕ್ಷಿಸಬಹುದು.</p>
+<input type="file" id="pdf" accept="application/pdf"><div id="viewer"></div>
+<p class="small">ಸೂಚನೆ: ಈ ಆಯ್ಕೆ ನಿಮ್ಮ ಸಾಧನದಲ್ಲಷ್ಟೇ PDF ತೋರಿಸುತ್ತದೆ. ಎಲ್ಲ ಓದುಗರಿಗೂ ಪತ್ರಿಕೆ ಕಾಣಲು PDF ಅನ್ನು ವೆಬ್‌ಸೈಟ್‌ಗೆ ಪ್ರತ್ಯೇಕವಾಗಿ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ ಅದರ ಲಿಂಕ್ ಸೇರಿಸಬೇಕು.</p>
+</section>
+<section class="card"><h2>ಪಾಲಾರ್ ಸಾರಥಿ ಬಗ್ಗೆ</h2>
+<p class="note">ಪಾಲಾರ್ ಸಾರಥಿ ಕನ್ನಡ ದೈನಿಕ ಪತ್ರಿಕೆ. ಕೋಲಾರ, ಕೆಜಿಎಫ್, ಬೇತಮಂಗಲ ಮತ್ತು ಸುತ್ತಮುತ್ತಲಿನ ಪ್ರದೇಶಗಳ ಸುದ್ದಿ ಹಾಗೂ ಸಾರ್ವಜನಿಕ ಮಾಹಿತಿಯನ್ನು ಓದುಗರಿಗೆ ತಲುಪಿಸುವ ಉದ್ದೇಶ ಹೊಂದಿದೆ.</p>
+</section></main>
+<footer>ಪಾಲಾರ್ ಸಾರಥಿ · ಕನ್ನಡ ದೈನಿಕ ಪತ್ರಿಕೆ</footer>
+<script>
+document.getElementById('date').textContent='ದಿನಾಂಕ: '+new Date().toLocaleDateString('kn-IN');
+document.getElementById('pdf').addEventListener('change',function(){const f=this.files&&this.files[0];if(!f)return;if(f.type!=='application/pdf'){alert('ದಯವಿಟ್ಟು PDF ಫೈಲ್ ಆಯ್ಕೆಮಾಡಿ.');return;}const url=URL.createObjectURL(f);const v=document.getElementById('viewer');v.innerHTML='';const frame=document.createElement('iframe');frame.title='ಪಾಲಾರ್ ಸಾರಥಿ ಇ-ಪೇಪರ್';frame.src=url;v.appendChild(frame);});
+</script>
+</body></html>
